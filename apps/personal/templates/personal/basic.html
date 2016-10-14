@@ -1,0 +1,17 @@
+{% extends "./index.html" %}
+
+{% block page-title %}
+  Contact Page
+{% endblock %}
+
+{% block content %}
+  <section id="content" class="ui grid container">
+    <div class="wide column">
+      {% for c in content %}
+        <p>
+          {{ c }}
+        </p>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}

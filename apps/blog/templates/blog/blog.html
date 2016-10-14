@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block page-title %}
+  Blog Page
+{% endblock %}
+
+{% block content %}
+  <section id="content" class="ui grid container">
+    <div class="wide column">
+      {% for post in object_list %}
+        <h5><a href="/blog/{{ post.id }}">{{ post.title }}</a></h5>
+        <p>
+          {{ post.date|date:"Y-m-d" }}
+        </p>
+        <div>
+          {{ post.body }}
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}
