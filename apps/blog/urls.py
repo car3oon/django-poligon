@@ -4,5 +4,8 @@ from .models import Post
 
 urlpatterns = [
     url(r'^$', ListView.as_view(queryset=Post.
-        objects.all().order_by("-date")[:25], template_name="blog/blog.html"), name='blog_main')
+        objects.all().order_by("-date")[:25],
+            template_name="blog/blog.html"), name='blog_main'),
+    url(r'^(?P<pk>\d+)$', DetailView.as_view(model=Post,
+        template_name="blog/post.html"))
 ]

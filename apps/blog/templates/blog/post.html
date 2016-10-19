@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block page-title %}
+  {{ post.title }}
+{% endblock %}
+
+{% block content %}
+  <section id="blog-post-{{post.pk}}" class="ui grid container">
+    <div class="wide column">
+      <h2>{{ post.title }}</h2>
+      <p>
+        on {{ post.date|date:"Y-m-d" }}
+      </p>
+      <div>
+        {{ post.body|safe|linebreaks }}
+      </div>
+    </div>
+  </section>
+{% endblock %}

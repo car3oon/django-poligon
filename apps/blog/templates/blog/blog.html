@@ -8,13 +8,20 @@
   <section id="content" class="ui grid container">
     <div class="wide column">
       {% for post in object_list %}
-        <h5><a href="/blog/{{ post.id }}">{{ post.title }}</a></h5>
-        <p>
-          {{ post.date|date:"Y-m-d" }}
-        </p>
-        <div>
-          {{ post.body }}
-        </div>
+        <article>
+          <h3><a href="/blog/{{ post.id }}">{{ post.title }}</a></h3>
+          <p>
+            on {{ post.date|date:"Y-m-d" }}
+          </p>
+          <div>
+            {{ post.body|safe|linebreaks|truncatechars:350 }}
+          </div>
+          {% if post.body|length > 350 %}
+            <a class="ui tiny primary basic right floated button" href="/blog/{{ post.id }}">Read more</a>
+            <div class="ui clearing hidden divider"></div>
+          {% endif %}
+        </article>
+        <div class="ui section divider"></div>
       {% endfor %}
     </div>
   </section>
