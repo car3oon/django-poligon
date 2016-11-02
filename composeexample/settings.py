@@ -25,7 +25,7 @@ SECRET_KEY = 'm_f$c^%z-)nxy8xkcya!tbxof80dzvl@9kj*j$@12-z-tstpr0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_django',
     'apps.account',
     'apps.data',
     'apps.blog',
@@ -72,6 +73,10 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'composeexample.wsgi.application'
+
+GRAPHENE = {
+    'SCHEMA': 'app.schema.schema'
+}
 
 
 # Database
